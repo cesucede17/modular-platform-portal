@@ -1,0 +1,49 @@
+# Catálogo de herramientas del recibidor.
+#
+# NO EDITAR A MANO: se genera desde los module.yaml de cada módulo con
+#   task catalogo        (desde la raíz del repo)
+# y un test falla si este fichero y los manifiestos no coinciden.
+#
+# Cada entrada necesita un rol de realm de Keycloak con el mismo nombre que el
+# campo "rol". Ver la tarjeta no es poder entrar (ADR 0003); la tarjeta entra
+# por /sso/login (ADR 0004); url y url_ruta son los dos modos de despliegue,
+# por subdominio y por ruta (ADR 0005). base_interna es el nombre de servicio
+# dentro de sge_net, por eso no lleva dominio.
+
+herramientas:
+- id: palbe
+  nombre: PALBE
+  descripcion: Lineas base energeticas, seguimiento y verificacion IPMVP
+  icono: /static/iconos/palbe.png
+  url: http://palbe.${SGE_BASE_DOMAIN}:8080/sso/login
+  url_ruta: http://${SGE_BASE_DOMAIN}:8080/palbe/sso/login
+  rol: palbe
+  base_interna: http://palbe:8000
+  ofrece: [contexto, activos]
+- id: tambora
+  nombre: Tambora
+  descripcion: Consulta del BOE y de normativa tecnica, con respuestas citadas
+  icono: /static/iconos/tambora.png
+  url: http://tambora.${SGE_BASE_DOMAIN}:8080/sso/login
+  url_ruta: http://${SGE_BASE_DOMAIN}:8080/tambora/sso/login
+  rol: tambora
+  base_interna: http://tambora:8501
+  ofrece: [activos]
+- id: bartolo
+  nombre: Bartolo
+  descripcion: Auditorias internas ISO 50001, con plan e informe en Word
+  icono: /static/iconos/bartolo.png
+  url: http://bartolo.${SGE_BASE_DOMAIN}:8080/sso/login
+  url_ruta: http://${SGE_BASE_DOMAIN}:8080/bartolo/sso/login
+  rol: bartolo
+  base_interna: http://bartolo:8502
+  ofrece: [contexto, activos]
+- id: cae
+  nombre: CAE
+  descripcion: Expedientes de Certificados de Ahorro Energetico, del chat al informe
+  icono: /static/iconos/cae.png
+  url: http://cae.${SGE_BASE_DOMAIN}:8080/sso/login
+  url_ruta: http://${SGE_BASE_DOMAIN}:8080/cae/sso/login
+  rol: cae
+  base_interna: http://cae:8503
+  ofrece: [contexto, activos]
